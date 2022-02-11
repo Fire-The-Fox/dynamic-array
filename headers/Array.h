@@ -40,7 +40,6 @@ void* Array_Get(Array array, int index)
     return NULL;
 }
 
-//#define Array_UGet(array, index, type) ({type null; array.created == 1 ? *((type*)((void*) array.data+(index) * array.elementByteSize)) : null;})
 #define Array_UGet(array, index, type) *((type*)Array_Get(array, index))
 
 void Array_Insert(Array *array, int index, void *item)
