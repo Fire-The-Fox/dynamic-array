@@ -35,7 +35,7 @@ int main() {
 	printf("[");
 	for (int i = 0; i < array.size-1; i++) {
 		  printf("%d, ", Array_UGet(array, i, int));
-  }
+  	}
 	printf("%d]\n", Array_UGet(array, array.size-1, int));
 	
 	// After we are done with using our array, we need to clear it to prevent memory leaks
