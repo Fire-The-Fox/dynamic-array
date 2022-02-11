@@ -49,7 +49,7 @@ void Array_Insert(Array *array, int index, void *item)
 		array->data = realloc(array->data, array->size * array->elementByteSize);
 
 		for (int i = array->size; i > index; i--){
-		    memcpy(array->data + (array->size - 1) * array->elementByteSize, array->data + (array->size - 2) * array->elementByteSize, array->elementByteSize);
+		    memcpy(array->data + (i - 1) * array->elementByteSize, array->data + (i - 2) * array->elementByteSize, array->elementByteSize);
 		}
 
 		memcpy(array->data + index * array->elementByteSize, item, array->elementByteSize);
