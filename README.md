@@ -4,8 +4,8 @@ C header files for simple dynamic sized array manipulation
 
 These header files work together and creates complex but simple to use arrays like: `StringArray`, `Array` and last but not least `Dictionary` which is not array by 100% but it contains 2 arrays and every value can be searched by key
 
-## beginner friendly usage
-use `int` in `Array`
+## Usage
+use of `int` with `Array`
 ```c
 #include "headers/Array.h"
 #include <stdio.h>
@@ -21,8 +21,8 @@ int main() {
 	Array_Append(&array, &number); // [5]
 	
 	for (int i = 0; i < 10; i++) {
-			int number2 = i + 10;
-			Array_Append(&array, &number2); // Adds numbers 10, 11, 12, ..., 19 to our array
+		int number2 = i + 10;
+		Array_Append(&array, &number2); // Adds numbers 10, 11, 12, ..., 19 to our array
 	}
 	
 	Array_Insert(&array, 3, &number); // [5, 10, 11, 5, 12, 13, 14, 15, 16, 17, 18, 19]
@@ -34,8 +34,8 @@ int main() {
 	 // print values of our array in nice way
 	printf("[");
 	for (int i = 0; i < array.size-1; i++) {
-		  printf("%d, ", Array_UGet(array, i, int));
-  	}
+		printf("%d, ", Array_UGet(array, i, int));
+	}
 	printf("%d]\n", Array_UGet(array, array.size-1, int));
 	
 	// After we are done with using our array, we need to clear it to prevent memory leaks
@@ -44,3 +44,20 @@ int main() {
 	return 0;
 }
 ```
+<br>
+
+### Use of own data types with `Array`
+```c
+typedef struct {
+	int health;
+	int defence;
+	char *name;
+} player;
+...
+Array array;
+Array_Create(&array, sizeof(player));
+...
+Array_UGet(array, 0, player);
+...
+```
+
