@@ -1,4 +1,5 @@
 
+
 # dynamic-array
 C header files for simple dynamic sized array manipulation
 
@@ -104,3 +105,7 @@ int main() {
 	return 0;
 }
 ```
+<br>
+
+Use of own data types with `Dictionary`
+It's same as for `Array`
