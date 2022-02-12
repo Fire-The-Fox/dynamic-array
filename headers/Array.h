@@ -56,7 +56,7 @@ void Array_Insert(Array *array, int index, void *item)
     } else printf("INFO: Did you initialize Array?\n");
 }
 
-void Array_Set(Array *array, int index, void *item)
+void Array_Replace(Array *array, int index, void *item)
 {
 	if (array->created) {
 		if (array->size > index) memcpy(array->data + index * array->elementByteSize, item, array->elementByteSize);
