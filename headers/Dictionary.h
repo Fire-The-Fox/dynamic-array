@@ -29,7 +29,7 @@ void Dictionary_Append(Dictionary *dict, char *name, void* value)
 {
 	if (dict->created) {
 		StringArray_Append(&(dict->keys), AdvancedString_Convert(name));
-		Array_Append(&(dict->values), &value);
+		Array_Append(&(dict->values), value);
 	}
 }
 
@@ -37,7 +37,7 @@ void Dictionary_Set(Dictionary *dict, char *name, void* value)
 {
 	if (dict->created) {
 		int index = StringArray_Index((dict->keys), AdvancedString_Convert(name));
-		Array_Set(&(dict->values), index, &value);
+		Array_Set(&(dict->values), index, value);
 	}
 }
 
