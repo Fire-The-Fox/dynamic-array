@@ -33,11 +33,11 @@ void Dictionary_Append(Dictionary *dict, char *name, void* value)
 	}
 }
 
-void Dictionary_Set(Dictionary *dict, char *name, void* value)
+void Dictionary_Replace(Dictionary *dict, char *name, void* value)
 {
 	if (dict->created) {
 		int index = StringArray_Index((dict->keys), AdvancedString_Convert(name));
-		Array_Set(&(dict->values), index, value);
+		Array_Replace(&(dict->values), index, value);
 	}
 }
 
