@@ -26,7 +26,7 @@ int main() {
 	}
 	
 	Array_Insert(&array, 3, &number); // [5, 10, 11, 5, 12, 13, 14, 15, 16, 17, 18, 19]
-	Array_Set(&array, 9, &number); //    [5, 10, 11, 5, 12, 13, 14, 15, 16, 5, 18, 19]
+	Array_Replace(&array, 9, &number); //    [5, 10, 11, 5, 12, 13, 14, 15, 16, 5, 18, 19]
 	Array_Remove(&array, 5); //          [5, 10, 11, 5, 12, 14, 15, 16, 5, 18, 19]
 	
 	printf("Index of 14 is: %d\n", Array_Index(array, &number3)); // Index of 14 is: 5
@@ -86,8 +86,8 @@ int main() {
 	}
 	
 	// Grapes looks cheap, lets change price with strawberry
-	Dictionary_Set(&dict, "Grapes", &prices[4]);
-	Dictionary_Set(&dict, "Strawberry", &prices[3]);
+	Dictionary_Replace(&dict, "Grapes", &prices[4]);
+	Dictionary_Replace(&dict, "Strawberry", &prices[3]);
 	
 	// We are out of stock with Bananas, lets remove them
 	Dictionary_Remove(&dict, "Banana");
