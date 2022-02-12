@@ -5,7 +5,7 @@ C header files for simple dynamic sized array manipulation
 These header files work together and creates complex but simple to use arrays like: `StringArray`, `Array` and last but not least `Dictionary` which is not array by 100% but it contains 2 arrays and every value can be searched by key
 
 ## Usage
-use of `int` with `Array`
+Use of `int` with `Array`
 ```c
 #include "headers/Array.h"
 #include <stdio.h>
@@ -46,7 +46,7 @@ int main() {
 ```
 <br>
 
-### Use of own data types with `Array`
+Use of own data types with `Array`
 ```c
 typedef struct {
 	int health;
@@ -60,4 +60,47 @@ Array_Create(&array, sizeof(player));
 Array_UGet(array, 0, player);
 ...
 ```
+<br>
 
+Use of `int` with `Dictionary`
+
+```c
+#include "headers/Dictionary.h"
+#include <stdio.h>
+
+int main() {
+
+	//               🍎  🍌  🍋  🍇  🍓
+	int prices[] = {25, 10, 20, 5, 15};
+	char* names[] = {"Apple", "Banana", "Lemon", "Grapes", "Strawberry"};
+	Dictionary dict;
+	
+	// This step is required otherwise computer is going to complain
+	Dictionary_Create(&dict, sizeof(int)); // {}
+	
+	Dictionary_Append(&dict, names[0], &prices[0]); // {"Apple": 25}
+	
+	// lets add leftover elements
+	for (int i = 1; i < 5; i++) {
+		Dictionary_Append(&dict, names[i], &prices[i]);
+	}
+	
+	// Grapes looks cheap, lets change price with strawberry
+	Dictionary_Set(&dict, "Grapes", &prices[4]);
+	Dictionary_Set(&dict, "Strawberry", &prices[3]);
+	
+	// We are out of stock with Bananas, lets remove them
+	Dictionary_Remove(&dict, "Banana");
+	
+	// Our leftover
+	printf("{");
+	for (int i = 0; i < dict.keys.size-1; i++) {
+		char *key = StringArray_GetCharPointer(dict.keys, i);
+		printf("\"%s\": %d, ", key, Dictionary_UGet(dict, key, int));
+	}
+	char *key = StringArray_GetCharPointer(dict.keys, dict.keys.size-1);
+	printf("\"%s\": %d}\n", key, Dictionary_UGet(dict, key, int));
+	
+	return 0;
+}
+```
