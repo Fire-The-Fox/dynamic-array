@@ -1,6 +1,6 @@
 /*
  * DynamicArrays - group of header files for dynamic sized array manipulation
- * Copyright (C) 20022 Fire-The-Fox
+ * Copyright (C) 2022 Ján Gajdoš
  *
  * This program is free software: you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
