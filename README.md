@@ -1,4 +1,5 @@
-
+## Note
+This repository is an anrchive, reffer to actual fox libraries
 
 # dynamic-array
 C header files for simple dynamic sized array manipulation
